@@ -1,6 +1,5 @@
 package com.sktech.services;
 
-import com.sktech.exception.BookNotFound;
 import com.sktech.model.Book;
 import com.sktech.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,8 @@ public class BookService {
         if(book.isPresent()){
             return book.get();
         }else{
-            throw new BookNotFound();
+            System.out.println("Book Detail not found");
+            return new Book();
         }
     }
 
